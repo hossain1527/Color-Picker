@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+//import {ChromePicker} from 'react-color'
+//import {SketchPicker} from 'react-color'
+//import {CirclePicker} from 'react-color'
+//import {TwitterPicker} from 'react-color'
+import {PhotoshopPicker} from 'react-color'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+  const  [color, setColor] = useState('#00ff00')
+    
+      return (
+       <div className="main-container">
+          <PhotoshopPicker
+          color={color}
+          onChangeComplete={(color) => {setColor(color.hex)} }
+
+          />
+
+          <div style={{backgroundColor:color, height: '100vh', width:'100%'}}>
+           <span>This is React Generated Color Picker</span>
+          </div>
+        </div>
+     )
+   
 }
 
 export default App;
